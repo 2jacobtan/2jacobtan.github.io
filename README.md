@@ -1,2 +1,2 @@
 # 2jacobtan.github.io
-[https://github.com/2jacobtan/](https://github.com/2jacobtan/)
+[https://2jacobtan.github.io](https://2jacobtan.github.io)
