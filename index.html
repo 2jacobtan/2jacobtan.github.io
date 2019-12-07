@@ -16,12 +16,56 @@
 
 <h1>Bookmarklets</h1>
 
+
+  
+<p>
+  <h3>Toggle floating elements on webpage</h3>
+  <a href='
+javascript:
+if (typeof aoeuToggle != "number"){
+    /* declare global variables for toggle functionality */
+    var aoeuToggle;
+    var aoeuFloats = [];
+	/* append CSS rule */
+	(function(){
+		var aoeuStyle = document.createElement("style");
+		aoeuStyle.type = "text/css";
+		aoeuStyle.innerHTML = ".aoeuHideFloater, .aoeuHideFloater * { visibility: hidden !important; }";
+		document.head.appendChild(aoeuStyle);
+	})();
+}
+(function(){
+    if (aoeuToggle != 1){
+        /* generate array of floating elements to be hidden */
+        var aoeuElems = document.body.getElementsByTagName("*");
+        aoeuFloats=[]; /*reset for each toggle on*/
+        for (var i=0;i<aoeuElems.length;i++) {
+            var positionValue = window.getComputedStyle(aoeuElems[i]).getPropertyValue("position");
+            if ( ["fixed","sticky"].includes(positionValue) ) {
+                aoeuFloats[aoeuFloats.length]=aoeuElems[i]; /*store the relevant element, for toggle purposes*/
+                aoeuElems[i].classList.add("aoeuHideFloater"); /*then hide it*/
+            }
+        }
+        /*alert(aoeuFloats.length);*/
+        aoeuToggle=1;
+    } else{
+        /* un-hide previously hidden elements */
+        for(var i=0; i<aoeuFloats.length; i++){
+            aoeuFloats[i].classList.remove("aoeuHideFloater");
+        }
+        aoeuToggle=0;
+    }
+})();        
+   '>Toggle floating elements</a>
+  ← save this link as a bookmark (e.g. drag-and-drop directly into bookmark bar)
+</p>
+
 <p>
   <h3>Jisho quick search</h3>
   <a href="javascript:(function(){window.open('http://jisho.org/search/' + window.getSelection().toString())})();">辞書</a>
   ← save this link as a bookmark (e.g. drag-and-drop directly into bookmark bar)
 </p>
-
+  
 <!--
 
 <p>
