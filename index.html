@@ -1,83 +1,14 @@
-<html>
-<head>
-  <title>2jacobtan.github.io</title>
-  <style>
-  body {
-      background-color: darkOrange;
-  }
-  ol {font-family: monospace;}
-  </style>
-</head>
-<body>
+---
+title: Home
+---
 
-<p>GitHub repository <a href="https://github.com/2jacobtan/JavaScript-bookmarklets">https://github.com/2jacobtan/JavaScript-bookmarklets</a></p>
+<h2>Welcome</h2>
 
-<hr>
+<p>Welcome to my blog!</p>
 
-<h1>Bookmarklets</h1>
+<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
 
+<h2>Posts</h2>
+$partial("templates/post-list.html")$
 
-  
-<p>
-  <h3>Toggle floating elements on webpage</h3>
-  <a href='
-javascript:
-if (typeof aoeuToggle != "number"){
-    /* declare global variables for toggle functionality */
-    var aoeuToggle;
-    var aoeuFloats = [];
-	/* append CSS rule */
-	(function(){
-		var aoeuStyle = document.createElement("style");
-		aoeuStyle.type = "text/css";
-		aoeuStyle.innerHTML = ".aoeuHideFloater, .aoeuHideFloater * { visibility: hidden !important; }";
-		document.head.appendChild(aoeuStyle);
-	})();
-}
-(function(){
-    if (aoeuToggle != 1){
-        /* generate array of floating elements to be hidden */
-        var aoeuElems = document.body.getElementsByTagName("*");
-        aoeuFloats=[]; /*reset for each toggle on*/
-        for (var i=0;i<aoeuElems.length;i++) {
-            var positionValue = window.getComputedStyle(aoeuElems[i]).getPropertyValue("position");
-            if ( ["fixed","sticky"].includes(positionValue) ) {
-                aoeuFloats[aoeuFloats.length]=aoeuElems[i]; /*store the relevant element, for toggle purposes*/
-                aoeuElems[i].classList.add("aoeuHideFloater"); /*then hide it*/
-            }
-        }
-        /*alert(aoeuFloats.length);*/
-        aoeuToggle=1;
-    } else{
-        /* un-hide previously hidden elements */
-        for(var i=0; i<aoeuFloats.length; i++){
-            aoeuFloats[i].classList.remove("aoeuHideFloater");
-        }
-        aoeuToggle=0;
-    }
-})();        
-   '>Toggle floating elements</a>
-  ← save this link as a bookmark (e.g. drag-and-drop directly into bookmark bar)
-</p>
-
-<p>
-  <h3>Jisho quick search</h3>
-  <a href="javascript:(function(){window.open('http://jisho.org/search/' + window.getSelection().toString())})();">辞書</a>
-  ← save this link as a bookmark (e.g. drag-and-drop directly into bookmark bar)
-</p>
-  
-<!--
-
-<p>
-  <h3>Instagram full-size image</h3>
-  <a href='javascript:%20(function(){%20var%20pics%20=%20document.getElementsByTagName("img");%20var%20url%20=%20pics[pics.length%20-1].src;%20window.open(url);%20})();'>Instagram full-size image</a>
-  ← save this link as a bookmark (e.g. drag-and-drop directly into bookmark bar)
-  <style>.row{border: 1px solid blue; padding: 0px;margin-top: 0px;margin-bottom: :0px;;}.numbcell{background-color:#355DB2;color: #FFFFFF;text-align: right;font-family: 'Helvetica Neue', Helvetica, Arial, Verdana;}.cell{padding:0px;background-color: #FFF6A6;}.cellp{line-height: 110%;color: #05007E;padding: 0px;margin-top:0px;margin-bottom: 0px;font-family: Courier, 'Courier New';}.comment{color:#A1A1A1;}</style><script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script><div><table class="codetable"><tbody><tr class="row"><td class="numbcell">1</td><td class="cell"><p class="cellp" style="margin-left: 0px;">javascript:</p></td></tr><tr class="row"><td class="numbcell">2</td><td class="cell"><p class="cellp" style="margin-left: 0px;">(function(){</p></td></tr><tr class="row"><td class="numbcell">3</td><td class="cell"><p class="cellp" style="margin-left: 30px;"> var pics = document.getElementsByTagName("img");</p></td></tr><tr class="row"><td class="numbcell">4</td><td class="cell"><p class="cellp" style="margin-left: 30px;"> var url = pics[pics.length -1].src;</p></td></tr><tr class="row"><td class="numbcell">5</td><td class="cell"><p class="cellp" style="margin-left: 30px;"> window.open(url);</p></td></tr><tr class="row"><td class="numbcell">6</td><td class="cell"><p class="cellp" style="margin-left: 0px;">})();</p></td></tr></tbody></table><input value="Toggle line numbers" onclick="$(this).parent().parent().find('.numbcell').toggle(300)" type="button"></div>
-</p>
-
-<script src="deccerating_motion_animation.js"></script>
-
--->
-
-</body>
-</html>
+<p>…or you can find more in the <a href="/archive.html">archives</a>.</p>
